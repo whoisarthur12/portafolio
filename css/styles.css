@@ -293,16 +293,22 @@ section { padding: 96px 0; }
 .service-card p { opacity: 0.62; font-size: 0.96rem; margin-bottom: 0; }
 
 /* ---------- Work / Portfolio ---------- */
-.work-card {
+.work-grid {
   display: grid;
-  grid-template-columns: 1.15fr 1fr;
-  gap: 48px;
-  align-items: center;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
   margin-top: 48px;
+}
+
+.work-card {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  min-width: 0;
   background: var(--ink-soft);
   border: 1px solid var(--line);
-  border-radius: 24px;
-  padding: 28px;
+  border-radius: 20px;
+  padding: 20px;
 }
 
 .browser-preview {
@@ -316,6 +322,7 @@ section { padding: 96px 0; }
   display: flex;
   align-items: center;
   gap: 7px;
+  min-width: 0;
   padding: 12px 14px;
   background: var(--paper-dim);
   border-bottom: 1px solid var(--line-on-paper);
@@ -325,9 +332,15 @@ section { padding: 96px 0; }
   height: 9px;
   border-radius: 50%;
   background: rgba(23, 20, 15, 0.18);
+  flex-shrink: 0;
 }
 .browser-url {
   margin-left: 10px;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   font-size: 0.78rem;
   color: rgba(23, 20, 15, 0.55);
   background: var(--paper);
@@ -336,49 +349,42 @@ section { padding: 96px 0; }
   font-family: var(--font-body);
 }
 
-.browser-body { padding: 28px 24px 32px; }
+.browser-body { padding: 20px 18px 22px; }
 
-.mock-hero { margin-bottom: 22px; }
 .mock-line { border-radius: 6px; background: var(--line-on-paper); margin-bottom: 10px; }
-.mock-line-lg { height: 20px; width: 78%; }
-.mock-line-sm { height: 11px; width: 55%; opacity: 0.7; }
-.mock-pill { height: 30px; width: 130px; border-radius: 999px; background: var(--accent); margin-top: 16px; opacity: 0.85; }
+.mock-line-lg { height: 16px; width: 78%; }
+.mock-line-sm { height: 10px; width: 55%; opacity: 0.7; }
+.mock-pill { height: 24px; width: 100px; border-radius: 999px; background: var(--accent); margin-top: 12px; opacity: 0.85; }
 
-.mock-cards { display: flex; gap: 12px; }
+.mock-cards { display: flex; gap: 8px; margin-top: 14px; }
 .mock-card {
   flex: 1;
-  height: 70px;
-  border-radius: 10px;
+  height: 48px;
+  border-radius: 8px;
   background: var(--paper-dim);
   border: 1px solid var(--line-on-paper);
 }
 
-.work-info h3 { margin-bottom: 12px; }
-.work-info p { opacity: 0.7; }
+.mock-photo {
+  height: 110px;
+  border-radius: 10px;
+  background: var(--paper-dim);
+  border: 1px solid var(--line-on-paper);
+  margin-bottom: 12px;
+}
+.mock-photo-sm { height: 64px; }
 
-.work-bullets {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 26px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.work-bullets li {
-  padding-left: 26px;
-  position: relative;
-  opacity: 0.85;
-  font-size: 0.95rem;
-}
-.work-bullets li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 6px;
-  width: 14px;
-  height: 14px;
-  border: 1.5px solid var(--accent);
-  border-radius: 4px;
+.work-info { padding: 0 6px 6px; }
+.work-info h3 { margin-bottom: 8px; font-size: 1.1rem; }
+.work-info p { opacity: 0.68; font-size: 0.92rem; margin-bottom: 16px; }
+
+.work-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--accent-soft);
 }
 
 /* ---------- Process ---------- */
@@ -472,7 +478,7 @@ section { padding: 96px 0; }
 @media (max-width: 900px) {
   .service-grid { grid-template-columns: 1fr 1fr; }
   .process-grid { grid-template-columns: 1fr 1fr; }
-  .work-card { grid-template-columns: 1fr; }
+  .work-grid { grid-template-columns: 1fr 1fr; }
   .contact-inner { grid-template-columns: 1fr; }
 }
 
@@ -507,7 +513,7 @@ section { padding: 96px 0; }
   .nav-toggle.is-open span:nth-child(2) { opacity: 0; }
   .nav-toggle.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-  .service-grid, .process-grid { grid-template-columns: 1fr; }
+  .service-grid, .process-grid, .work-grid { grid-template-columns: 1fr; }
   .hero { padding: 92px 0 72px; }
   section { padding: 72px 0; }
   .footer-inner { flex-direction: column; align-items: flex-start; }
