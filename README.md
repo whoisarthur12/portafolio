@@ -15,12 +15,10 @@ js/main.js
 
 ## Pendientes antes de publicar
 
-1. **Formulario de contacto (Formspree):** crea una cuenta gratis en [formspree.io](https://formspree.io),
-   crea un formulario nuevo, y reemplaza `TU_FORM_ID` en `index.html` (atributo `action` del `<form>`)
-   por tu ID real, ej. `https://formspree.io/f/abc1234`.
+1. ~~**Formulario de contacto (Formspree)**~~ — ya configurado (`https://formspree.io/f/mnqyejpo`).
 2. **Activar GitHub Pages:** en el repo, ve a `Settings → Pages → Build and deployment → Source` y
    selecciona **GitHub Actions**. El workflow en `.github/workflows/deploy.yml` se encarga del resto
-   en cada push a `main`.
+   en cada push a la rama por defecto (`claude/portfolio-landing-page-jvka43`).
 
 ## Desarrollo local
 
